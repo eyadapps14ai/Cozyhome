@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cozy Home POS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Cozy Home <span>POS</span></h1>
+    <input id="search" type="search" placeholder="Search products…" autocomplete="off">
+  </header>
+
+  <main class="layout">
+    <section class="catalog">
+      <nav id="categories" class="chips"></nav>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <aside class="cart">
+      <h2>Current sale</h2>
+      <ul id="lines" class="lines"></ul>
+      <p id="empty" class="empty">Tap a product to add it.</p>
+      <dl class="totals">
+        <dt>Subtotal</dt><dd id="subtotal">0.00</dd>
+        <dt>Tax (<span id="taxrate"></span>)</dt><dd id="tax">0.00</dd>
+        <dt class="grand">Total</dt><dd id="total" class="grand">0.00</dd>
+      </dl>
+      <div class="pay">
+        <button id="clear" class="ghost">Clear</button>
+        <button id="pay-card" class="primary">Card</button>
+        <button id="pay-cash" class="primary">Cash</button>
+      </div>
+    </aside>
+  </main>
+
+  <dialog id="cash-dialog">
+    <form method="dialog">
+      <h3>Cash payment</h3>
+      <p>Total due: <strong id="cash-due"></strong></p>
+      <label>Amount tendered <input id="tendered" type="number" min="0" step="0.01" required></label>
+      <p id="cash-error" class="error"></p>
+      <menu>
+        <button value="cancel" formnovalidate class="ghost">Cancel</button>
+        <button id="cash-confirm" value="ok" class="primary">Complete sale</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <dialog id="receipt-dialog">
+    <div id="receipt" class="receipt"></div>
+    <menu>
+      <button id="print" class="ghost">Print</button>
+      <button id="new-sale" class="primary">New sale</button>
+    </menu>
+  </dialog>
+
+  <script src="cart.js"></script>
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

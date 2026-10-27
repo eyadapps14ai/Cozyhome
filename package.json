@@ -1,0 +1,9 @@
+{
+  "name": "cozy-home-pos",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Quick POS page for Cozy Home",
+  "scripts": {
+    "test": "node --test"
+  }
+}
